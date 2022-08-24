@@ -4,6 +4,7 @@
  */
 package Pantalla;
 
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,13 +26,22 @@ public class JDlogin extends javax.swing.JDialog {
     
     if(UsuarioVal.equals(jTUser.getText())){
         if(ContraseñaVal.equals(jTPassword.getText())){
-            JOptionPane.showMessageDialog(null, "Bienvenido al Sistema");
+            Pasar();
+            //JOptionPane.showMessageDialog(null, "Bienvenido al Sistema");
         }else{
         JOptionPane.showMessageDialog(null,"La contraseña es Incorrecta", "ERROR",JOptionPane.ERROR_MESSAGE);}
     }else{
         JOptionPane.showMessageDialog(null,"El Usuario es Invalido", "ERROR",JOptionPane.ERROR_MESSAGE);
     }
     }
+    private void Pasar(){
+        JDPantalla p1=new JDPantalla();
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +56,7 @@ public class JDlogin extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,6 +70,17 @@ public class JDlogin extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 237, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,6 +99,9 @@ public class JDlogin extends javax.swing.JDialog {
                         .addGap(37, 37, 37)
                         .addComponent(jButton1)))
                 .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +116,9 @@ public class JDlogin extends javax.swing.JDialog {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -144,6 +171,7 @@ public class JDlogin extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel content;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
