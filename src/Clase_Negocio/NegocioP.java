@@ -9,6 +9,5 @@ package Clase_Negocio;
  * @author elbet
  */
 public class NegocioP {
-    String UsuarioVal="Admin";
-    String ContraseñaVal="12345";
+    
 }
