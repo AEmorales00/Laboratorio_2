@@ -4,7 +4,9 @@
  */
 package Pantalla;
 
+import Clase_Negocio.Negocio;
 import javax.swing.JDialog;
+import Clase_Negocio.NegocioP;
 
 /**
  *
@@ -12,11 +14,19 @@ import javax.swing.JDialog;
  */
 public class JDPantalla extends javax.swing.JDialog {
 
+    public static void jTventa(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * Creates new form JDPantalla
      */
     public JDPantalla() {
         initComponents();
+    }
+          public void ventas(){
+        NegocioP d=new NegocioP();
+        NegocioP.venta();
     }
 
     JDPantalla(JDialog jDialog, boolean b) {
@@ -50,8 +60,8 @@ public class JDPantalla extends javax.swing.JDialog {
         jTcosto = new javax.swing.JTextField();
         jTnombre = new javax.swing.JTextField();
         jTcodigo = new javax.swing.JTextField();
-        jTventa = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jTventa = new javax.swing.JTextField();
 
         jLabel1.setText("Codigo:");
 
@@ -87,9 +97,20 @@ public class JDPantalla extends javax.swing.JDialog {
 
         jCinactivo.setText("Inactivo");
 
-        jTventa.setText("...");
+        jTcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTcodigoActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("BIENVENIDO!!");
+
+        jTventa.setEditable(false);
+        jTventa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTventaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,22 +134,21 @@ public class JDPantalla extends javax.swing.JDialog {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jCactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCinactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jTexistencia)
-                        .addComponent(jTproveedor)
-                        .addComponent(jTclasif)
-                        .addComponent(jTcosto)
-                        .addComponent(jTnombre)
-                        .addComponent(jTcodigo))
-                    .addComponent(jTventa)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jCactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCinactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTexistencia)
+                    .addComponent(jTproveedor)
+                    .addComponent(jTclasif)
+                    .addComponent(jTcosto)
+                    .addComponent(jTnombre)
+                    .addComponent(jTcodigo)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(jLabel9)))
+                        .addComponent(jLabel9))
+                    .addComponent(jTventa))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -137,17 +157,17 @@ public class JDPantalla extends javax.swing.JDialog {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jTcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTventa))
+                    .addComponent(jTventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -173,7 +193,7 @@ public class JDPantalla extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBaceptar)
                     .addComponent(jBcancelar))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,12 +201,21 @@ public class JDPantalla extends javax.swing.JDialog {
 
     private void jBaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBaceptarActionPerformed
         // TODO add your handling code here:
+        ventas();
     }//GEN-LAST:event_jBaceptarActionPerformed
 
     private void jBcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcancelarActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jBcancelarActionPerformed
+
+    private void jTcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTcodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTcodigoActionPerformed
+
+    private void jTventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTventaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTventaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,8 +255,8 @@ public class JDPantalla extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBaceptar;
     private javax.swing.JButton jBcancelar;
-    private javax.swing.JCheckBox jCactivo;
-    private javax.swing.JCheckBox jCinactivo;
+    public static javax.swing.JCheckBox jCactivo;
+    public static javax.swing.JCheckBox jCinactivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -237,12 +266,12 @@ public class JDPantalla extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTclasif;
-    private javax.swing.JTextField jTcodigo;
-    private javax.swing.JTextField jTcosto;
-    private javax.swing.JTextField jTexistencia;
-    private javax.swing.JTextField jTnombre;
-    private javax.swing.JTextField jTproveedor;
-    private javax.swing.JLabel jTventa;
+    public static javax.swing.JTextField jTclasif;
+    public static javax.swing.JTextField jTcodigo;
+    public static javax.swing.JTextField jTcosto;
+    public static javax.swing.JTextField jTexistencia;
+    public static javax.swing.JTextField jTnombre;
+    public static javax.swing.JTextField jTproveedor;
+    public static javax.swing.JTextField jTventa;
     // End of variables declaration//GEN-END:variables
 }
