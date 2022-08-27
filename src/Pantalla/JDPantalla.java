@@ -28,6 +28,14 @@ public class JDPantalla extends javax.swing.JDialog {
         NegocioP d=new NegocioP();
         NegocioP.venta();
     }
+        public void existencia(){
+        NegocioP d=new NegocioP();
+        NegocioP.exist();
+    }
+        public void clasificacion(){
+        NegocioP d=new NegocioP();
+        NegocioP.clasif();
+    }
 
     JDPantalla(JDialog jDialog, boolean b) {
         throw new UnsupportedOperationException(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -63,6 +71,8 @@ public class JDPantalla extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jTventa = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(66, 80, 107));
+
         jLabel1.setText("Codigo:");
 
         jLabel2.setText("Nombre:");
@@ -92,6 +102,8 @@ public class JDPantalla extends javax.swing.JDialog {
                 jBcancelarActionPerformed(evt);
             }
         });
+
+        jTclasif.setEditable(false);
 
         jCactivo.setText("Activo");
 
@@ -149,7 +161,7 @@ public class JDPantalla extends javax.swing.JDialog {
                         .addGap(17, 17, 17)
                         .addComponent(jLabel9))
                     .addComponent(jTventa))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +205,7 @@ public class JDPantalla extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBaceptar)
                     .addComponent(jBcancelar))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,7 +213,9 @@ public class JDPantalla extends javax.swing.JDialog {
 
     private void jBaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBaceptarActionPerformed
         // TODO add your handling code here:
+        existencia();
         ventas();
+        clasificacion();
     }//GEN-LAST:event_jBaceptarActionPerformed
 
     private void jBcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcancelarActionPerformed

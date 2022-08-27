@@ -89,7 +89,21 @@ public class NegocioP {
         existencia =Integer.parseInt(JDPantalla.jTexistencia.getText());
         if(existencia>0){
         }else{
+            JOptionPane.showMessageDialog(null, "La Cantidad no puede ser menor a 0");
+            JDPantalla.jTexistencia.requestFocus();
         }
     }
+    public static void clasif(){
+        int PrecioV;
+        PrecioV=Integer.parseInt(JDPantalla.jTventa.getText());
+        if(PrecioV>=0 && PrecioV<=100){
+            JDPantalla.jTclasif.setText("Clase D");
+        }else if(PrecioV>=101 && PrecioV<=300){
+            JDPantalla.jTclasif.setText("Clase C1");
+        }else if(PrecioV>=301 && PrecioV<=700){
+            JDPantalla.jTclasif.setText("Clase B1");
+        }else if(PrecioV>=701){
+            JDPantalla.jTclasif.setText("Clase A1");
+    }}
     
 }
